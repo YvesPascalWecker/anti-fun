@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AntiFun"
-run/main_scene="uid://sb87gk6wv43n"
+run/main_scene="uid://cu47qmamhnlni"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -41,6 +41,12 @@ move_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="enemy"
 
 [physics]
 
