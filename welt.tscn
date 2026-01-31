@@ -19,3 +19,4 @@ mesh = SubResource("PlaneMesh_2weay")
 
 [node name="Player" parent="." unique_id=327792399 instance=ExtResource("1_2weay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3080444, 0)
+mouse_sensitivity = 0.001
