@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://2u8e1p8ijlfw"]
+
+[sub_resource type="Gradient" id="Gradient_aq2ne"]
+offsets = PackedFloat32Array(0.5542249, 0.55688626, 0.62608117, 0.62643677)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_etjlb"]
+gradient = SubResource("Gradient_aq2ne")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="progressbar" type="CenterContainer" unique_id=1726491295]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1951323698]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+value = 100.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_etjlb")
