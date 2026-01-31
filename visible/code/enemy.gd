@@ -24,11 +24,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _on_area_3d_body_entered(body: Node3D) -> void:
+		# The direction to the player body
+	var direction = global_position.direction_to(body.global_position)
+	
+	# The location normalized of where the player is in relation to the Front
+	# of the enemy
+	var facing = global_transform.basis.tdotz(direction)
+	
+	var fov = cos(deg_to_rad(70))
+	
+	if facing > fov:
+		print("Player has entered at" + facing)
+		
+	else:
+		print("Where are you?!")
+	
 
-
-func _on_detect_area_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
-
-
-func _on_detect_area_body_exited(body: Node3D) -> void:
-	pass # Replace with function body.
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	print("Player has left")
+	

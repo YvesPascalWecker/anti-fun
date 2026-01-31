@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4gyqm"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7k104"]
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1845832126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0246896, 0)
@@ -20,9 +20,9 @@ mesh = SubResource("CapsuleMesh_7k104")
 
 [node name="DetectArea" type="Area3D" parent="." unique_id=1885043074]
 
-[node name="DetectColision" type="CollisionShape3D" parent="DetectArea" unique_id=1509430464]
-transform = Transform3D(5.303301, 5.303301, -4.651747e-08, 0, -3.278354e-07, -1.505, -5.303301, 5.303301, -4.651747e-08, 0, 0, 5.0982485)
-shape = SubResource("BoxShape3D_4gyqm")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1779071274]
+transform = Transform3D(12.5, 0, 0, 0, 0.85, 0, 0, 0, 12.5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_7k104")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
