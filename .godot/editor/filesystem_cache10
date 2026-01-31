@@ -1,3 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1769821769
-icon.svg::CompressedTexture2D::1993817440263985765::1769821764::1769821770::1::::<><><>0<>0<>bb70abce1f371ebe8416ff1db9253b60<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1769850514
+city.fbx::PackedScene::8465104215467105968::1769830517::1769831773::1::::<><><>0<>0<>df1143ff14ae3729b2f244c06fc80ec2<>res://.godot/imported/city.fbx-8b17648720f3f3983b06dc52a095b4f2.scn::
+city.tscn::PackedScene::4073261942377022528::1769830517::0::1::::<><><>0<>0<><>::uid://dsutbaj21u0wa::::res://city.fbx
+cityshader.gdshader::Shader::8704003119574433320::1769830517::0::1::::<><><>0<>0<><>::
+enemy.tscn::PackedScene::6879474979466091597::1769848785::0::1::::<><><>0<>0<><>::uid://dtual2gubi1nq::::res://visible/code/enemy.gd
+icon.svg::CompressedTexture2D::1993817440263985765::1769824078::1769831772::1::::<><><>0<>0<>bb70abce1f371ebe8416ff1db9253b60<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+player.tscn::PackedScene::7929157393552128825::1769831992::0::1::::<><><>0<>0<><>::uid://d1m8ryhw1ds6w::::res://visible/code/player_controller.gd
+welt.tscn::PackedScene::1267524701431795105::1769831712::0::1::::<><><>0<>0<><>::uid://dk77cf05e0aqr::::res://player.tscn
+::res://visible/::1769831712
+::res://visible/code/::1769845258
+enemy.gd::GDScript::8534158707325737986::1769845258::0::1::::<>CharacterBody3D<><>0<>0<><>::
+player_controller.gd::GDScript::9010979810383037236::1769831712::0::1::::<>CharacterBody3D<><>0<>0<><>::
