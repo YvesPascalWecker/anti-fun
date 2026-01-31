@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	# The direction to the player body
+		# The direction to the player body
 	var direction = global_position.direction_to(body.global_position)
 	
 	# The location normalized of where the player is in relation to the Front
@@ -39,7 +39,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		
 	else:
 		print("Where are you?!")
-
+	
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	print("Player has left")
+	
