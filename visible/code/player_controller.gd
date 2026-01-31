@@ -6,8 +6,8 @@ const JUMP_VELOCITY:float = 4.5
 @export_range(0.00001,1.0,0.00001) var mouse_sensitivity:float = 0.0
 
 
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready() -> void:
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -15,6 +15,13 @@ func _input(event):
 		%Head.rotate_x(-event.relative.y * mouse_sensitivity)
 		%Head.rotation.x = clampf(%Head.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 
+	if Input.is_action_just_pressed("interact") and %ArmEyeCast.is_colliding():
+		var collidetWith = %ArmEyeCast.get_collider()
+		print(collidetWith.name)
+		if collidetWith.name == "DecalArea3D":
+			if collidetWith.has_method("flip"):
+				collidetWith.flip()
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

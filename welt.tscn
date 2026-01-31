@@ -1,26 +1,84 @@
 [gd_scene format=3 uid="uid://sb87gk6wv43n"]
 
 [ext_resource type="PackedScene" uid="uid://dk77cf05e0aqr" path="res://player.tscn" id="1_2weay"]
+[ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="2_n1dji"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n1dji"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3bccv"]
+sky_material = SubResource("ProceduralSkyMaterial_n1dji")
+
+[sub_resource type="Environment" id="Environment_4agmm"]
+background_mode = 2
+sky = SubResource("Sky_3bccv")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2weay"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2weay"]
 size = Vector2(40, 40)
 
+[sub_resource type="BoxMesh" id="BoxMesh_3bccv"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n1dji"]
+
 [node name="Welt" type="Node3D" unique_id=30415215]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=162593415]
+environment = SubResource("Environment_4agmm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1917061847]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1239821241]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1150098740]
+shape = SubResource("WorldBoundaryShape3D_2weay")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=448748317]
 mesh = SubResource("PlaneMesh_2weay")
 
 [node name="Player" parent="." unique_id=327792399 instance=ExtResource("1_2weay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3080444, 0)
+collision_layer = 2
+collision_mask = 15
+speed = 5.0
 mouse_sensitivity = 0.001
 
 [node name="Camera3D" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="0" unique_id=830207570]
 current = true
 
+[node name="ArmEyeCast" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="1" unique_id=1668854249]
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="EnemyEntryPoint" type="Node" parent="." unique_id=876581777]
 
+[node name="DecalFlip" parent="." unique_id=1757766559 instance=ExtResource("2_n1dji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23158598, 1.7839769, -3.3011522)
+
+[node name="DecalArea3D" parent="DecalFlip/Enemy_Sticker" parent_id_path=PackedInt32Array(1757766559, 766342472) index="0" unique_id=224898251]
+collision_layer = 2
+collision_mask = 3
+monitoring = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DecalFlip/Enemy_Sticker" parent_id_path=PackedInt32Array(1757766559, 766342472) index="1" unique_id=702200743]
+mesh = SubResource("BoxMesh_3bccv")
+
+[node name="DecalArea3D" parent="DecalFlip/Player_Sticker" parent_id_path=PackedInt32Array(1757766559, 720795508) index="0" unique_id=956142251]
+visible = true
+
+[node name="CollisionShape3D" parent="DecalFlip/Player_Sticker/DecalArea3D" index="0" unique_id=997805335]
+visible = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DecalFlip/Player_Sticker" parent_id_path=PackedInt32Array(1757766559, 720795508) index="1" unique_id=694152612]
+mesh = SubResource("SphereMesh_n1dji")
+
 [editable path="Player"]
+[editable path="DecalFlip"]

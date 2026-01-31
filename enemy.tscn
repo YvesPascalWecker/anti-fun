@@ -18,11 +18,11 @@ shape = SubResource("CapsuleShape3D_fb3t6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1309260003]
 mesh = SubResource("CapsuleMesh_7k104")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1885043074]
+[node name="DetectArea" type="Area3D" parent="." unique_id=1885043074]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1509430464]
+[node name="DetectColision" type="CollisionShape3D" parent="DetectArea" unique_id=1509430464]
 transform = Transform3D(5.303301, 5.303301, -4.651747e-08, 0, -3.278354e-07, -1.505, -5.303301, 5.303301, -4.651747e-08, 0, 0, 5.0982485)
 shape = SubResource("BoxShape3D_4gyqm")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]

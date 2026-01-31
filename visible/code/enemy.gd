@@ -24,9 +24,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+
+
+func _on_detect_area_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
 
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
+func _on_detect_area_body_exited(body: Node3D) -> void:
 	pass # Replace with function body.
