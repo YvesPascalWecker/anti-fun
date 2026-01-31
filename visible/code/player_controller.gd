@@ -6,8 +6,8 @@ const JUMP_VELOCITY:float = 4.5
 @export_range(0.00001,1.0,0.00001) var mouse_sensitivity:float = 0.0
 
 
-#func _ready() -> void:
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
