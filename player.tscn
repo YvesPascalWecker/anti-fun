@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dk77cf05e0aqr"]
+
+[ext_resource type="Script" uid="uid://d1m8ryhw1ds6w" path="res://visible/code/player_controller.gd" id="1_4flbx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4flbx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_onrkg"]
+sky_material = SubResource("ProceduralSkyMaterial_4flbx")
+
+[sub_resource type="Environment" id="Environment_i3pqv"]
+background_mode = 2
+sky = SubResource("Sky_onrkg")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+
+[node name="Player" type="CharacterBody3D" unique_id=327792399]
+script = ExtResource("1_4flbx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1475244580]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=185375551]
+environment = SubResource("Environment_i3pqv")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1635577856]
+shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="Head" type="Node3D" parent="." unique_id=97254667]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=830207570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49792808, -0.5021479)
+fov = 90.0

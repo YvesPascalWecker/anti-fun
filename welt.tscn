@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://sb87gk6wv43n"]
+
+[ext_resource type="PackedScene" uid="uid://dk77cf05e0aqr" path="res://player.tscn" id="1_2weay"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_idhvx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2weay"]
+size = Vector2(40, 40)
+
+[node name="Welt" type="Node3D" unique_id=30415215]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1239821241]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1150098740]
+shape = SubResource("WorldBoundaryShape3D_idhvx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=448748317]
+mesh = SubResource("PlaneMesh_2weay")
+
+[node name="Player" parent="." unique_id=327792399 instance=ExtResource("1_2weay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3080444, 0)
