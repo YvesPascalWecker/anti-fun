@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu47qmamhnlni"]
 
 [ext_resource type="Script" uid="uid://rrqfjfoax26a" path="res://visible/code/menue_controller.gd" id="1_in16k"]
+[ext_resource type="PackedScene" uid="uid://sb87gk6wv43n" path="res://welt.tscn" id="2_hxe85"]
 
 [node name="Menue" type="Control" unique_id=727166634]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_in16k")
+start_scean = ExtResource("2_hxe85")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=292076574]
 layout_mode = 1
