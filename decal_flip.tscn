@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dj05jlpv5468v"]
+
+[ext_resource type="Script" uid="uid://xphrx0u76kg6" path="res://decal_flip.gd" id="1_mm2x8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdqqi"]
+
+[node name="DecalFlip" type="Node3D" unique_id=1757766559]
+script = ExtResource("1_mm2x8")
+
+[node name="Enemy_Sticker" type="Decal" parent="." unique_id=766342472]
+
+[node name="Area3D" type="Area3D" parent="Enemy_Sticker" unique_id=224898251]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Sticker/Area3D" unique_id=466498763]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_qdqqi")
+
+[node name="Player_Sticker" type="Decal" parent="." unique_id=720795508]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="Player_Sticker" unique_id=956142251]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Sticker/Area3D" unique_id=997805335]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_qdqqi")
