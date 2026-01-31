@@ -2,3 +2,4 @@
 .godot/
 /android/
 .invisible 
+.godot/editor/editor_layout.cfg
