@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sb87gk6wv43n"]
 
 [ext_resource type="PackedScene" uid="uid://dk77cf05e0aqr" path="res://player.tscn" id="1_2weay"]
+[ext_resource type="PackedScene" uid="uid://dpqm46lvso6ip" path="res://propaganda_counter.tscn" id="1_8bs7t"]
 [ext_resource type="MeshLibrary" uid="uid://4ln70tn6wif5" path="res://city_meshlib.meshlib" id="3_3bccv"]
 [ext_resource type="PackedScene" uid="uid://c5ap7hwv4kwbt" path="res://enemy.tscn" id="3_4agmm"]
 [ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="4_4agmm"]
@@ -61,6 +62,8 @@ volumetric_fog_ambient_inject = 1.53
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=162593415]
 environment = SubResource("Environment_4agmm")
 
+[node name="PropagandaCounter" parent="." unique_id=1487290295 instance=ExtResource("1_8bs7t")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1917061847]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -5.230648, 0, 0)
 shadow_enabled = true
@@ -91,18 +94,23 @@ data = {
 }
 
 [node name="Enemy" parent="." unique_id=1845832126 instance=ExtResource("3_4agmm")]
-transform = Transform3D(-0.60575247, 0, -0.79565316, 0, 1, 0, 0.79565316, 0, -0.60575247, -14.533845, 2.3034956, 15.97261)
+transform = Transform3D(-0.7532305, 0, 0.6577567, 0, 1, 0, -0.6577567, 0, -0.7532305, -14.533845, 2.3034956, 13.465742)
 
 [node name="DecalArea3D" parent="." unique_id=224898251 instance=ExtResource("4_4agmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8900967, 2.6167634, 18.932474)
 decalTextureEnemy = ExtResource("5_gfeq7")
 decalTexturePlayer = ExtResource("6_gfeq7")
-isNegative = false
 playerDecalOffset = Vector3(0.03, 0.07, 0)
 playerDecalRotation = 12.26
-playerDecalScale = Vector3(0.5, 0.5, 0.5)
+
+[node name="DecalArea3D" parent="DecalArea3D" unique_id=268428482 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-0.9995142, 0, 0.031166425, 0, 1, 0, -0.031166425, 0, -0.9995142, -9.151764, -0.42684197, -11.920789)
+decalTextureEnemy = ExtResource("5_gfeq7")
+decalTexturePlayer = ExtResource("6_gfeq7")
+playerDecalOffset = Vector3(0.03, 0.07, 0)
+playerDecalRotation = 12.26
 
 [node name="Enemy2" parent="." unique_id=506533670 instance=ExtResource("3_4agmm")]
-transform = Transform3D(-0.28695926, 0, -0.9579428, 0, 1, 0, 0.9579428, 0, -0.28695926, -0.24254656, 2.3084993, 17.686825)
+transform = Transform3D(-0.015044093, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044093, -0.24254656, 2.3084993, 17.686825)
 
 [editable path="Player"]

@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	if !Engine.is_editor_hint():
-		Global.setRemainingDecalCount(Global.getRemainingDecalCount() + 1)
+		Global.registerDecal()
 		updateDecal()
 
 func updateDecal():

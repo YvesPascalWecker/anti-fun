@@ -61,7 +61,10 @@ func _process(delta: float) -> void:
 			# Cancel flipping action
 			isFlippingDecal = false
 			progressBarComponent.value = 0.0
-			
+	else:
+		# Cancel flipping action
+		isFlippingDecal = false
+		progressBarComponent.value = 0.0
 		
 	
 func _physics_process(delta: float) -> void:

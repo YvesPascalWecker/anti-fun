@@ -12,9 +12,6 @@ gradient = SubResource("Gradient_mm2x8")
 [node name="DecalArea3D" type="Area3D" unique_id=224898251]
 monitoring = false
 script = ExtResource("1_mm2x8")
-playerDecalOffset = null
-playerDecalRotation = null
-playerDecalScale = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=466498763]
 shape = SubResource("BoxShape3D_qdqqi")
