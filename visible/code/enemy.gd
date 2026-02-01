@@ -1,9 +1,11 @@
+class_name enemy
 extends CharacterBody3D
 
-
+@export var FOV = 70.0
+var playerIsVisible:bool = false
+var player:Player
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,24 +25,44 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func _on_player_flipping():
+	print("player is flipping in my view!!!!!!!")
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+
+func _process(delta: float) -> void:
+	if player:
 		# The direction to the player body
-	var direction = global_position.direction_to(body.global_position)
-	
-	# The location normalized of where the player is in relation to the Front
-	# of the enemy
-	var facing = global_transform.basis.tdotz(direction)
-	
-	var fov = cos(deg_to_rad(70))
-	
-	if facing > fov:
-		print("Player has entered at" + facing)
+		var direction = global_position.direction_to(player.global_position)
 		
-	else:
-		print("Where are you?!")
+		# The location normalized of where the player is in relation to the Front
+		# of the enemy
+		var facing = global_transform.basis.tdotz(direction)
+		
+		var fov = cos(deg_to_rad(FOV))
+		
+		if facing > fov:
+			if !playerIsVisible:
+				print("Player, I see you!")
+				player.OnFlippingProgress.connect(_on_player_flipping)
+				playerIsVisible = true;
+			
+		else:
+			if playerIsVisible:
+				playerIsVisible = false;
+				player.OnFlippingProgress.disconnect(_on_player_flipping)
 	
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	print("Player has left")
+func _on_detect_area_body_entered(body: Node3D) -> void:
+	if body is Player:
+		player = body		
+
+
+func _on_detect_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		player = null
+		print("Player has left")
+		if playerIsVisible:
+			playerIsVisible = false;
+			body.OnFlippingProgress.disconnect(_on_player_flipping)
 	
+		

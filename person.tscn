@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://w5m8dfw88emb"]
+
+[ext_resource type="PackedScene" uid="uid://mu0n3mm765xc" path="res://person.fbx" id="1_0pife"]
+
+[node name="person" unique_id=1079412303 instance=ExtResource("1_0pife")]
+
+[node name="bat" parent="." index="1" unique_id=138484367]
+visible = false
+
+[node name="face_angry" parent="." index="2" unique_id=1417270677]
+visible = false
+
+[node name="face_happy" parent="." index="3" unique_id=341804815]
+visible = false

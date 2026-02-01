@@ -1,6 +1,7 @@
+class_name PropagandaDecal
 extends Area3D
 
-
+@export var decalSwapTime = 1.0;
 var flipState:bool = false
 
 func flip() -> void:
