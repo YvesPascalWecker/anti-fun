@@ -4,6 +4,7 @@ extends Node
 @export var negativeDecalTextures:Array[Texture2D]
 var __remainingDecalCount:int
 var __decalCountTotal:int
+var player:Player
 
 signal OnRemainingDecalCountChanged(countNew:int, countTotal:int)
 signal OnGameLost(count:int, countTotal:int)
@@ -19,6 +20,10 @@ func setRemainingDecalCount(count:int):
 	
 func getRemainingDecalCount():
 	return __remainingDecalCount
+	
+func playerDied():
+	OnGameLost.emit()
+	print("Player was killed!")
 	
 func registerDecal():
 	__decalCountTotal += 1

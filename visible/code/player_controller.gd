@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @export var speed:float = 5.0
 @export var progressBarScene:PackedScene
+@export var audioStartFlipping:Array[AudioStreamWAV]
 var progressBarInstance:Object
 var progressBarComponent
 var decalProgress:float
@@ -17,6 +18,7 @@ signal OnFlippingDone
 
 
 func _ready() -> void:
+	Global.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	progressBarInstance = progressBarScene.instantiate()
 	progressBarComponent = progressBarInstance.get_child(0)
@@ -33,6 +35,10 @@ func _input(event):
 		#var collidetWith = %ArmEyeCast.get_collider()
 		#print(collidetWith.name)
 		if decal:
+			if !isFlippingDecal:
+				$AudioStreamPlayer3D.stream = audioStartFlipping.pick_random()
+				$AudioStreamPlayer3D.play()
+			
 			isFlippingDecal = true
 			decalProgress = decal.decalSwapTime
 		#if collidetWith.name == "DecalArea3D":

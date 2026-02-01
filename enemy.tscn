@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dtual2gubi1nq" path="res://visible/code/enemy.gd" id="1_7k104"]
 [ext_resource type="PackedScene" uid="uid://w5m8dfw88emb" path="res://person.tscn" id="2_4gyqm"]
-[ext_resource type="Script" path="res://person.gd" id="3_iifgy"]
+[ext_resource type="AudioStream" uid="uid://be2ahi4p1bpym" path="res://audio/V3.1.wav" id="2_hb8ge"]
+[ext_resource type="Script" uid="uid://dcw4cbe22p6hs" path="res://person.gd" id="3_iifgy"]
 [ext_resource type="AudioStream" uid="uid://d36t3b06nurr4" path="res://audio/V4.2.wav" id="3_qi2p4"]
+[ext_resource type="AudioStream" uid="uid://dnhv6bkm0txnu" path="res://audio/V5.2.wav" id="4_e1ltt"]
+[ext_resource type="AudioStream" uid="uid://cbrovfejfh3qt" path="res://audio/V1.1.wav" id="5_dxifv"]
 [ext_resource type="Script" uid="uid://duhn33ututy6p" path="res://subEnemy.gd" id="5_epg4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fb3t6"]
@@ -12,9 +15,10 @@
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1845832126]
 script = ExtResource("1_7k104")
+audioStartHunting = Array[AudioStreamWAV]([ExtResource("2_hb8ge"), ExtResource("3_qi2p4"), ExtResource("4_e1ltt"), ExtResource("5_dxifv")])
 
 [node name="body" parent="." unique_id=1079412303 instance=ExtResource("2_4gyqm")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.0034957, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0034957, 0)
 script = ExtResource("3_iifgy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=28007411]

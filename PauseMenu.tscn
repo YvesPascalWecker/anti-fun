@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cn1wfqirsrk43"]
+
+[ext_resource type="Script" uid="uid://b6374e8bwn1ee" path="res://visible/code/menu_pause.gd" id="1_nov15"]
+
+[node name="Menue" type="Control" unique_id=727166634]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nov15")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=292076574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="V-SortStartMenue" type="VBoxContainer" parent="AspectRatioContainer" unique_id=1042654338]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="AspectRatioContainer/V-SortStartMenue" unique_id=1532062019]
+layout_mode = 2
+text = "Continue
+"
+
+[node name="EndButton" type="Button" parent="AspectRatioContainer/V-SortStartMenue" unique_id=518804051]
+layout_mode = 2
+text = "End"
+
+[connection signal="pressed" from="AspectRatioContainer/V-SortStartMenue/ContinueButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/V-SortStartMenue/EndButton" to="." method="_on_end_button_pressed"]

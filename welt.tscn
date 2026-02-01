@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dq22hlvf1kjsy" path="res://positive/Untitled_Artwork 13 Medium.png" id="28_pyeyh"]
 [ext_resource type="Texture2D" uid="uid://co8ir2tyhfn80" path="res://positive/Untitled_Artwork 14 Medium.png" id="29_t75un"]
 [ext_resource type="Texture2D" uid="uid://bn4564uuikwio" path="res://positive/Untitled_Artwork 24 Medium.png" id="30_2l12n"]
+[ext_resource type="Script" uid="uid://bc053uitvprj8" path="res://WinAndEndLabel.gd" id="31_50pcl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n1dji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -80,6 +81,10 @@ volumetric_fog_emission_energy = 139.54
 volumetric_fog_detail_spread = 1.0606606
 volumetric_fog_ambient_inject = 1.53
 
+[sub_resource type="LabelSettings" id="LabelSettings_50pcl"]
+font_size = 65
+font_color = Color(0, 0, 0, 1)
+
 [node name="Welt" type="Node3D" unique_id=30415215]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=162593415]
@@ -97,7 +102,6 @@ directional_shadow_fade_start = 0.093
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.56096, 6.42276, 46.944122)
 collision_layer = 3
 collision_mask = 15
-speed = null
 mouse_sensitivity = 0.001
 
 [node name="Camera3D" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="0" unique_id=830207570]
@@ -118,7 +122,9 @@ data = {
 }
 
 [node name="Enemy" parent="." unique_id=1845832126 instance=ExtResource("3_4agmm")]
-transform = Transform3D(-0.7532305, 0, 0.6577567, 0, 1, 0, -0.6577567, 0, -0.7532305, -14.533845, 2.3034956, 13.465742)
+transform = Transform3D(0.8832833, 0, -0.46883962, 0, 1, 0, 0.46883962, 0, 0.8832833, -14.533845, 2.3034956, 13.465742)
+rotateAround = 180.0
+rotateAroundDelay = 5.0
 
 [node name="Enemy2" parent="." unique_id=506533670 instance=ExtResource("3_4agmm")]
 transform = Transform3D(-0.015044093, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044093, -0.24254656, 2.3084993, 17.686825)
@@ -271,6 +277,19 @@ playerDecalRotation = -182.315
 playerDecalScale = Vector3(0.735, 0.5, 0.735)
 
 [node name="NavigationServer" type="Node" parent="." unique_id=1173375331]
+
+[node name="Label" type="Label" parent="." unique_id=1933258073]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_50pcl")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("31_50pcl")
 
 [editable path="Player"]
 [editable path="Enemy"]
