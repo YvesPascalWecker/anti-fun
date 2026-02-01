@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://c5ap7hwv4kwbt"]
 
 [ext_resource type="Script" uid="uid://dtual2gubi1nq" path="res://visible/code/enemy.gd" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://w5m8dfw88emb" path="res://person.tscn" id="2_4gyqm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fb3t6"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7k104"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7k104"]
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1845832126]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0246896, 0)
 script = ExtResource("1_7k104")
+
+[node name="person" parent="." unique_id=731722646 instance=ExtResource("2_4gyqm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.0034957, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=28007411]
 shape = SubResource("CapsuleShape3D_fb3t6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1309260003]
-mesh = SubResource("CapsuleMesh_7k104")
-
 [node name="DetectArea" type="Area3D" parent="." unique_id=1885043074]
+collision_layer = 4
+collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1779071274]
-transform = Transform3D(12.5, 0, 0, 0, 0.85, 0, 0, 0, 12.5, 0, 0, 0)
+[node name="Area3D#CollisionShape3D2" type="CollisionShape3D" parent="DetectArea" unique_id=1779071274]
+transform = Transform3D(12.5, 0, 0, 0, 12.5, 0, 0, 0, 12.5, 0, 0, 0)
 shape = SubResource("CylinderShape3D_7k104")
 
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]

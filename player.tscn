@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dk77cf05e0aqr"]
 
 [ext_resource type="Script" uid="uid://d1m8ryhw1ds6w" path="res://visible/code/player_controller.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://2u8e1p8ijlfw" path="res://progressbar.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
 [node name="Player" type="CharacterBody3D" unique_id=327792399]
 script = ExtResource("1_4flbx")
 speed = null
+progressBarScene = ExtResource("2_onrkg")
 mouse_sensitivity = null
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1635577856]
@@ -22,5 +24,5 @@ fov = 90.0
 
 [node name="ArmEyeCast" type="RayCast3D" parent="Head" unique_id=1668854249]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50195616, -0.5138563)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.50195616, 0.16654623)
 target_position = Vector3(0, 0, -1.532)
