@@ -7,6 +7,29 @@
 [ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="4_4agmm"]
 [ext_resource type="Texture2D" uid="uid://doax3emtmv2rw" path="res://negative/out_now.png" id="5_gfeq7"]
 [ext_resource type="Texture2D" uid="uid://cqnj37tr2nwbx" path="res://positive/Untitled_Artwork 20 Medium.png" id="6_gfeq7"]
+[ext_resource type="Texture2D" uid="uid://5dlcnfxybi0r" path="res://negative/Untitled_Artwork 1 Medium.png" id="8_pwogb"]
+[ext_resource type="Texture2D" uid="uid://5qbpxt3fgxhh" path="res://positive/Untitled_Artwork 6 Medium.png" id="9_50pcl"]
+[ext_resource type="Texture2D" uid="uid://deen2u0ng7jp8" path="res://negative/Untitled_Artwork 2 Medium.png" id="10_wsut7"]
+[ext_resource type="Texture2D" uid="uid://db4gp6q00sr0e" path="res://positive/Untitled_Artwork 16 Medium.png" id="11_5phtt"]
+[ext_resource type="Texture2D" uid="uid://cpvglk8vg3i03" path="res://negative/Untitled_Artwork Medium.png" id="12_r2uyw"]
+[ext_resource type="Texture2D" uid="uid://jrgrt54no0lm" path="res://positive/Untitled_Artwork 15 Medium.png" id="13_v7fyy"]
+[ext_resource type="Texture2D" uid="uid://cmafid80f6rvq" path="res://negative/Untitled_Artwork 3 Medium.png" id="14_mbmkp"]
+[ext_resource type="Texture2D" uid="uid://2mg72k7ptuxi" path="res://positive/Untitled_Artwork 10 Medium.png" id="15_g7e25"]
+[ext_resource type="Texture2D" uid="uid://7r06rojngwhb" path="res://positive/Untitled_Artwork 8 Medium.png" id="16_y1u0v"]
+[ext_resource type="Texture2D" uid="uid://clsghoo6xfinr" path="res://positive/Untitled_Artwork 18 Medium.png" id="17_30fov"]
+[ext_resource type="Texture2D" uid="uid://kjefwrkbmg8k" path="res://positive/Untitled_Artwork 17 Medium.png" id="18_d1ce1"]
+[ext_resource type="Texture2D" uid="uid://bb02j42xr7hei" path="res://positive/Untitled_Artwork 22 Medium.png" id="19_rbey0"]
+[ext_resource type="Texture2D" uid="uid://ddbh7yly42lnr" path="res://positive/Untitled_Artwork 23 Medium.png" id="20_ujlui"]
+[ext_resource type="Texture2D" uid="uid://8kd65xmigkmx" path="res://positive/Untitled_Artwork 4 Medium.png" id="21_xtaeo"]
+[ext_resource type="Texture2D" uid="uid://clenf6h6y62sf" path="res://positive/Untitled_Artwork 11 Medium.png" id="22_8g6jo"]
+[ext_resource type="Texture2D" uid="uid://b8tweastlkt46" path="res://positive/Untitled_Artwork 7 Medium.png" id="23_bvt2c"]
+[ext_resource type="Texture2D" uid="uid://d0adw3s25ehrg" path="res://positive/Untitled_Artwork 19 Medium.png" id="24_jk8us"]
+[ext_resource type="Texture2D" uid="uid://c658tofny8vrv" path="res://positive/Untitled_Artwork 5 Medium.png" id="25_fv37a"]
+[ext_resource type="Texture2D" uid="uid://r1laacko7i3j" path="res://positive/Untitled_Artwork 9 Medium.png" id="26_ftq43"]
+[ext_resource type="Texture2D" uid="uid://bwj5wcg1mvo60" path="res://positive/Untitled_Artwork 12 Medium.png" id="27_d78tm"]
+[ext_resource type="Texture2D" uid="uid://dq22hlvf1kjsy" path="res://positive/Untitled_Artwork 13 Medium.png" id="28_pyeyh"]
+[ext_resource type="Texture2D" uid="uid://co8ir2tyhfn80" path="res://positive/Untitled_Artwork 14 Medium.png" id="29_t75un"]
+[ext_resource type="Texture2D" uid="uid://bn4564uuikwio" path="res://positive/Untitled_Artwork 24 Medium.png" id="30_2l12n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n1dji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -96,6 +119,9 @@ data = {
 [node name="Enemy" parent="." unique_id=1845832126 instance=ExtResource("3_4agmm")]
 transform = Transform3D(-0.7532305, 0, 0.6577567, 0, 1, 0, -0.6577567, 0, -0.7532305, -14.533845, 2.3034956, 13.465742)
 
+[node name="Enemy2" parent="." unique_id=506533670 instance=ExtResource("3_4agmm")]
+transform = Transform3D(-0.015044093, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044093, -0.24254656, 2.3084993, 17.686825)
+
 [node name="DecalArea3D" parent="." unique_id=224898251 instance=ExtResource("4_4agmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8900967, 2.6167634, 18.932474)
 decalTextureEnemy = ExtResource("5_gfeq7")
@@ -103,14 +129,142 @@ decalTexturePlayer = ExtResource("6_gfeq7")
 playerDecalOffset = Vector3(0.03, 0.07, 0)
 playerDecalRotation = 12.26
 
-[node name="DecalArea3D" parent="DecalArea3D" unique_id=268428482 instance=ExtResource("4_4agmm")]
-transform = Transform3D(-0.9995142, 0, 0.031166425, 0, 1, 0, -0.031166425, 0, -0.9995142, -9.151764, -0.42684197, -11.920789)
-decalTextureEnemy = ExtResource("5_gfeq7")
-decalTexturePlayer = ExtResource("6_gfeq7")
+[node name="DecalArea3D2" parent="." unique_id=268428482 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-0.9995142, 0, 0.031166425, 0, 1, 0, -0.031166425, 0, -0.9995142, -12.041861, 2.1899214, 7.0116854)
+decalTextureEnemy = ExtResource("8_pwogb")
+decalTexturePlayer = ExtResource("9_50pcl")
 playerDecalOffset = Vector3(0.03, 0.07, 0)
 playerDecalRotation = 12.26
 
-[node name="Enemy2" parent="." unique_id=506533670 instance=ExtResource("3_4agmm")]
-transform = Transform3D(-0.015044093, 0, 0.9998868, 0, 1, 0, -0.9998868, 0, -0.015044093, -0.24254656, 2.3084993, 17.686825)
+[node name="DecalArea3D3" parent="." unique_id=404892400 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.3711385e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711385e-08, 0.9158912, 1.9377403, 60.99592)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("11_5phtt")
+playerDecalRotation = -0.14
+
+[node name="DecalArea3D4" parent="." unique_id=3879161 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.075836, 2.0329547, 42.877033)
+decalTextureEnemy = ExtResource("12_r2uyw")
+decalTexturePlayer = ExtResource("13_v7fyy")
+playerDecalOffset = Vector3(0.03, -0.07, 0)
+playerDecalRotation = -169.97
+
+[node name="DecalArea3D5" parent="." unique_id=308192704 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -33.186707, 1.9347274, 46.232227)
+decalTextureEnemy = ExtResource("14_mbmkp")
+decalTexturePlayer = ExtResource("15_g7e25")
+playerDecalRotation = -181.89
+
+[node name="DecalArea3D6" parent="." unique_id=1982837918 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.369244, 1.9701874, 30.93997)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("16_y1u0v")
+playerDecalRotation = -182.84
+
+[node name="DecalArea3D7" parent="." unique_id=1513080940 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40.90852, 2.1555219, 14.208897)
+decalTextureEnemy = ExtResource("8_pwogb")
+decalTexturePlayer = ExtResource("17_30fov")
+playerDecalOffset = Vector3(0, 0.225, 0)
+playerDecalRotation = -182.415
+
+[node name="DecalArea3D8" parent="." unique_id=1826369805 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.736824, 1.9967643, -5.1433053)
+decalTextureEnemy = ExtResource("5_gfeq7")
+decalTexturePlayer = ExtResource("18_d1ce1")
+playerDecalRotation = -181.905
+playerDecalScale = Vector3(0.9, 0.9, 0.9)
+
+[node name="DecalArea3D9" parent="." unique_id=105598235 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.30665, 2.1062913, -5.0819044)
+decalTextureEnemy = ExtResource("14_mbmkp")
+decalTexturePlayer = ExtResource("19_rbey0")
+playerDecalOffset = Vector3(0, -0.105, 0)
+playerDecalRotation = -182.125
+playerDecalScale = Vector3(0.7, 0.7, 0.7)
+
+[node name="DecalArea3D10" parent="." unique_id=1432003184 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9416502, 1.9991243, -5.0514193)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("20_ujlui")
+playerDecalRotation = -182.585
+playerDecalScale = Vector3(0.605, 0.605, 0.605)
+
+[node name="DecalArea3D11" parent="." unique_id=279928259 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.735035, 2.1932628, 3.1062179)
+decalTextureEnemy = ExtResource("12_r2uyw")
+decalTexturePlayer = ExtResource("21_xtaeo")
+playerDecalOffset = Vector3(0, -0.29, 0)
+playerDecalRotation = -182.385
+playerDecalScale = Vector3(0.94, 0.94, 0.94)
+
+[node name="DecalArea3D12" parent="." unique_id=1577135981 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.263275, 2.0142865, 26.902138)
+decalTextureEnemy = ExtResource("8_pwogb")
+decalTexturePlayer = ExtResource("22_8g6jo")
+
+[node name="DecalArea3D13" parent="." unique_id=306999739 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.203482, 1.9426028, 43.68784)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("23_bvt2c")
+
+[node name="DecalArea3D14" parent="." unique_id=1566400807 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.691166, 1.9921552, 27.005053)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("24_jk8us")
+playerDecalRotation = -182.475
+playerDecalScale = Vector3(0.74, 0.74, 0.74)
+
+[node name="DecalArea3D15" parent="." unique_id=598630443 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.833218, 2.0365884, 43.83975)
+decalTextureEnemy = ExtResource("12_r2uyw")
+decalTexturePlayer = ExtResource("25_fv37a")
+playerDecalRotation = -182.26
+playerDecalScale = Vector3(0.76, 0.5, 0.76)
+
+[node name="DecalArea3D16" parent="." unique_id=1171223106 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2664, 2.0845473, 59.166126)
+decalTextureEnemy = ExtResource("14_mbmkp")
+decalTexturePlayer = ExtResource("23_bvt2c")
+playerDecalOffset = Vector3(0, -0.16, 0)
+playerDecalRotation = -182.115
+playerDecalScale = Vector3(0.825, 0.5, 0.825)
+
+[node name="DecalArea3D17" parent="." unique_id=2092285240 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.961677, 2.3762355, 59.690155)
+decalTextureEnemy = ExtResource("5_gfeq7")
+decalTexturePlayer = ExtResource("26_ftq43")
+playerDecalOffset = Vector3(0, -0.305, 0)
+playerDecalRotation = -182.55
+playerDecalScale = Vector3(0.86, 0.5, 0.86)
+
+[node name="DecalArea3D18" parent="." unique_id=734916301 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.911662, 2.4549034, 59.01148)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("27_d78tm")
+playerDecalRotation = -182.305
+playerDecalScale = Vector3(0.605, 0.5, 0.605)
+
+[node name="DecalArea3D19" parent="." unique_id=1060501462 instance=ExtResource("4_4agmm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.790888, 2.208122, -20.170202)
+decalTextureEnemy = ExtResource("10_wsut7")
+decalTexturePlayer = ExtResource("28_pyeyh")
+playerDecalRotation = -182.03
+playerDecalScale = Vector3(0.91, 0.5, 0.91)
+
+[node name="DecalArea3D20" parent="." unique_id=1861587989 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.637457, 2.422595, -20.807808)
+decalTextureEnemy = ExtResource("5_gfeq7")
+decalTexturePlayer = ExtResource("29_t75un")
+playerDecalOffset = Vector3(0, -0.24, 0)
+playerDecalRotation = -182.405
+playerDecalScale = Vector3(0.765, 0.5, 0.59)
+
+[node name="DecalArea3D21" parent="." unique_id=1954536705 instance=ExtResource("4_4agmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.034746, 2.0038116, 35.009754)
+decalTextureEnemy = ExtResource("12_r2uyw")
+decalTexturePlayer = ExtResource("30_2l12n")
+playerDecalRotation = -182.315
+playerDecalScale = Vector3(0.735, 0.5, 0.735)
 
 [editable path="Player"]
