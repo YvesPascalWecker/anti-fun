@@ -11,6 +11,7 @@ extends Area3D
 @export var playerDecalRotation:float = -180.0
 @export var playerDecalScale:Vector3 = Vector3(0.5, 0.5, 0.5)
 
+var isHighlighted:bool = false
 
 var __decalTextureEnemyLast:Texture2D
 var __decalTexturePlayerLast:Texture2D
@@ -32,8 +33,17 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	if !Engine.is_editor_hint():
-		Global.setRemainingDecalCount(Global.getRemainingDecalCount() + 1)
+		Global.registerDecal()
 		updateDecal()
+		
+func setHighlight(doHighlight:bool):
+	if doHighlight:
+		if !isHighlighted && isNegative: 
+			%Enemy_Sticker.texture_emission = decalTextureEnemy
+			isHighlighted = true
+	else:
+		%Enemy_Sticker.texture_emission = null
+		isHighlighted = false
 
 func updateDecal():
 	%Player_Sticker.visible = !isNegative
