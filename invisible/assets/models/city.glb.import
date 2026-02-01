@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dsutbaj21u0wa"
-path="res://.godot/imported/city.fbx-98eef98201e11a4110b48c0f8e15cf0a.scn"
+uid="uid://jacntqbxiscl"
+path="res://.godot/imported/city.glb-0dba067fd7527eea252bae355c05bda7.scn"
 
 [deps]
 
-source_file="res://invisible/assets/models/city.fbx"
-dest_files=["res://.godot/imported/city.fbx-98eef98201e11a4110b48c0f8e15cf0a.scn"]
+source_file="res://invisible/assets/models/city.glb"
+dest_files=["res://.godot/imported/city.glb-0dba067fd7527eea252bae355c05bda7.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

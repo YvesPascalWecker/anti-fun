@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sb87gk6wv43n"]
 
 [ext_resource type="PackedScene" uid="uid://dk77cf05e0aqr" path="res://player.tscn" id="1_2weay"]
-[ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="2_n1dji"]
+[ext_resource type="MeshLibrary" uid="uid://4ln70tn6wif5" path="res://city_meshlib.meshlib" id="3_3bccv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n1dji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -12,19 +12,45 @@ sky_material = SubResource("ProceduralSkyMaterial_n1dji")
 
 [sub_resource type="Environment" id="Environment_4agmm"]
 background_mode = 2
+background_energy_multiplier = 0.53
 sky = SubResource("Sky_3bccv")
+ambient_light_color = Color(0, 0.45487702, 0.58716583, 1)
+ambient_light_sky_contribution = 0.95
+ambient_light_energy = 10.24
+reflected_light_source = 2
 tonemap_mode = 2
+tonemap_exposure = 0.72
+tonemap_white = 4.56
+ssao_radius = 7.11
+ssao_intensity = 4.05
+ssao_power = 1.4489017
+ssao_detail = 3.35
+ssao_horizon = 0.32
+ssao_light_affect = 0.8
+ssil_radius = 12.15
+ssil_intensity = 1.75
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 28.429688
+sdfgi_energy = 0.31
 glow_enabled = true
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2weay"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_2weay"]
-size = Vector2(40, 40)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3bccv"]
-size = Vector3(2, 2, 2)
-
-[sub_resource type="SphereMesh" id="SphereMesh_n1dji"]
+glow_intensity = 6.57
+glow_strength = 0.25
+glow_bloom = 0.22
+glow_blend_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.22079057, 0.24304458, 0.27767125, 1)
+fog_light_energy = 1.26
+fog_sun_scatter = 0.2
+fog_density = 0.0317
+fog_aerial_perspective = 0.11
+fog_height_density = -0.1275
+fog_depth_curve = 0.61557233
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.28780225, 0.28265485, 0.25075224, 1)
+volumetric_fog_emission = Color(1, 0.1764706, 0.2627451, 1)
+volumetric_fog_emission_energy = 139.54
+volumetric_fog_detail_spread = 1.0606606
+volumetric_fog_ambient_inject = 1.53
 
 [node name="Welt" type="Node3D" unique_id=30415215]
 
@@ -32,53 +58,32 @@ size = Vector3(2, 2, 2)
 environment = SubResource("Environment_4agmm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1917061847]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, -5.230648, 0, 0)
 shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1239821241]
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1150098740]
-shape = SubResource("WorldBoundaryShape3D_2weay")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=448748317]
-mesh = SubResource("PlaneMesh_2weay")
+directional_shadow_mode = 0
+directional_shadow_fade_start = 0.093
 
 [node name="Player" parent="." unique_id=327792399 instance=ExtResource("1_2weay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5.86477)
-collision_layer = 2
-collision_mask = 15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.56096, 6.42276, 46.944122)
+collision_layer = 3
+collision_mask = 14
 speed = 5.0
 mouse_sensitivity = 0.001
 
 [node name="Camera3D" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="0" unique_id=830207570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49792814, -0.5021515)
 current = true
 
 [node name="ArmEyeCast" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="1" unique_id=1668854249]
 collide_with_areas = true
 
-[node name="DecalFlip" parent="." unique_id=1757766559 instance=ExtResource("2_n1dji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043, 1, 1)
-
-[node name="DecalArea3D" parent="DecalFlip/Enemy_Sticker" parent_id_path=PackedInt32Array(1757766559, 766342472) index="0" unique_id=224898251]
-collision_layer = 2
-collision_mask = 3
-monitoring = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DecalFlip/Enemy_Sticker" parent_id_path=PackedInt32Array(1757766559, 766342472) index="1" unique_id=702200743]
-mesh = SubResource("BoxMesh_3bccv")
-
-[node name="DecalArea3D" parent="DecalFlip/Player_Sticker" parent_id_path=PackedInt32Array(1757766559, 720795508) index="0" unique_id=956142251]
-visible = true
-
-[node name="CollisionShape3D" parent="DecalFlip/Player_Sticker/DecalArea3D" index="0" unique_id=997805335]
-visible = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DecalFlip/Player_Sticker" parent_id_path=PackedInt32Array(1757766559, 720795508) index="1" unique_id=694152612]
-mesh = SubResource("SphereMesh_n1dji")
-
 [node name="EnemyEntryPoint" type="Node" parent="." unique_id=876581777]
 
+[node name="GridMap" type="GridMap" parent="." unique_id=1112216480]
+mesh_library = ExtResource("3_3bccv")
+cell_octant_size = 1
+data = {
+"cells": PackedInt32Array(2, 65534, 1441799, 2, 2, 1441798, 65534, 2, 0, 65534, 65534, 1441798, 65534, 6, 1, 2, 6, 1, 6, 10, 1048577, 6, 6, 1048578, 6, 2, 1048577, 6, 65534, 655364, 65530, 65534, 1441799, 65530, 6, 5, 65530, 2, 6, 65530, 10, 1048577, 65530, 14, 1048577, 65530, 18, 1048577, 65534, 10, 1441799, 2, 10, 1441798, 2, 14, 1441799, 65534, 14, 1441798, 65534, 18, 1441795, 6, 14, 1048579, 65534, 22, 1048577, 65526, 6, 1441796, 10, 65534, 4, 10, 65530, 1048580, 6, 65530, 1, 2, 65530, 1, 65534, 65530, 1, 65530, 65530, 1, 65526, 65530, 1048581, 65526, 2, 1441797, 65526, 65534, 1048577, 2, 18, 3, 65534, 26, 655365, 6, 18, 1048580, 6, 26, 4, 2, 26, 1, 6, 22, 1441793, 2, 22, 1441799, 65530, 26, 1441796, 65530, 22, 1441793, 65522, 6, 1048580, 65518, 6, 1441796, 65518, 2, 5, 65522, 2, 655365, 65522, 10, 655365, 65526, 10, 655367, 65526, 14, 655367, 65522, 14, 655366, 65518, 10, 655367, 65518, 14, 655367, 65526, 18, 655366, 65518, 18, 655366, 65522, 18, 655362, 65522, 22, 655367, 65518, 22, 655367, 65526, 22, 655366, 65518, 65534, 655366, 65514, 2, 655361, 65510, 2, 1048581, 65510, 65534, 1048578, 65514, 65534, 1048583, 65522, 65534, 1048577, 65522, 65530, 1441797, 65518, 65530, 655361, 65514, 65530, 655361, 65510, 65530, 655364, 65522, 65526, 655364, 65526, 65526, 1048580, 65514, 6, 1048583, 65514, 10, 1048582, 65510, 6, 1048577, 65510, 10, 1048579, 65506, 65534, 655361, 10, 2, 655367, 10, 10, 655367, 10, 14, 655366, 10, 18, 655367, 10, 6, 655361, 14, 6, 655361, 18, 6, 655361, 65502, 65534, 655361, 14, 9, 655367, 14, 11, 655367, 14, 12, 655367, 14, 13, 655367, 14, 14, 655367, 14, 15, 655367, 14, 16, 655367, 14, 17, 655367, 14, 18, 655367, 14, 19, 655367, 14, 21, 655367, 10, 22, 655367, 12, 22, 655367, 14, 22, 655367, 14, 2, 655367, 13, 2, 655367, 13, 1, 655367, 13, 0, 655367, 14, 0, 655367, 14, 65535, 655367, 14, 65534, 655367, 14, 65533, 655367, 13, 65533, 655367, 13, 65532, 655367, 14, 65532, 655367, 14, 65531, 655367, 13, 65531, 655367, 13, 65530, 655367, 14, 65530, 655367, 13, 65534, 655367, 65530, 65526, 655367, 65531, 65526, 655367, 65532, 65526, 655367, 65533, 65526, 655367, 65534, 65526, 655367, 65535, 65526, 655367, 0, 65526, 655367, 1, 65526, 655367, 2, 65526, 655367, 3, 65526, 655367, 4, 65526, 655367, 5, 65526, 655367, 6, 65526, 655367, 7, 65526, 655367, 8, 65526, 655367, 12, 65526, 655367, 13, 65526, 655367, 14, 65526, 655367, 6, 30, 655366, 5, 30, 655366, 4, 30, 655366, 3, 30, 655366, 65526, 26, 655366, 65535, 30, 655366, 65531, 30, 655367, 65526, 30, 655367, 65527, 30, 655367, 65528, 30, 655367, 65529, 30, 655367, 10, 26, 655367, 10, 30, 655367, 10, 24, 655367)
+}
+
 [editable path="Player"]
-[editable path="DecalFlip"]
