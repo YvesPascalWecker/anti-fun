@@ -269,21 +269,21 @@ playerDecalRotation = -182.315
 playerDecalScale = Vector3(0.735, 0.5, 0.735)
 
 [node name="DecalArea3D22" parent="." unique_id=698995835 instance=ExtResource("4_4agmm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.98398596, 3.4378629, 5.0020413)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.98398596, 2.7272818, 5.0020413)
 decalTextureEnemy = ExtResource("5_gfeq7")
 decalTexturePlayer = ExtResource("30_2l12n")
 playerDecalRotation = -182.285
 playerDecalScale = Vector3(1.62, 0.5, 1.62)
 
 [node name="DecalArea3D23" parent="." unique_id=38283065 instance=ExtResource("4_4agmm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.951055, 3.5940688, 3.1350129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.951055, 2.858237, 3.1350129)
 decalTextureEnemy = ExtResource("10_wsut7")
 decalTexturePlayer = ExtResource("16_y1u0v")
 playerDecalRotation = -182.415
 playerDecalScale = Vector3(1.36, 0.5, 1.36)
 
 [node name="DecalArea3D24" parent="." unique_id=424812639 instance=ExtResource("4_4agmm")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.043317, 3.5415308, 5.0196347)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.043317, 2.635011, 5.0196347)
 decalTextureEnemy = ExtResource("8_pwogb")
 decalTexturePlayer = ExtResource("9_50pcl")
 playerDecalRotation = -182.23
