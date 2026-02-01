@@ -9,6 +9,8 @@ extends CharacterBody3D
 @export var FOV = 70.0
 @export var rotateAround = 0.0
 @export var rotateAroundDelay = 10.0
+@export var patrolForwardTime = 0.0
+var patrolForwardTimeCurrent
 var rotateAroundDelayCurrent
 var initialPosition:Vector3
 var initialRotation:Vector3
@@ -31,6 +33,8 @@ func _ready() -> void:
 	initialPosition = global_position
 	initialRotation = rotation
 	rotateAroundDelayCurrent = rotateAroundDelay
+	patrolForwardTimeCurrent = patrolForwardTime
+	speedCurrent = speed;
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -119,6 +123,13 @@ func checkEnvironment(delta:float) -> void:
 	if rotateAroundDelayCurrent <= 0.0:
 		rotateAroundDelayCurrent = rotateAroundDelay
 		rotate_y(rad_to_deg(rotateAround))
+		
+	if patrolForwardTime > 0.1:
+		patrolForwardTimeCurrent -= delta
+		_velocity = global_transform.basis.z * -1.0
+		if patrolForwardTimeCurrent <= 0.0:
+			patrolForwardTimeCurrent = patrolForwardTime
+			rotate_y(deg_to_rad(180.0))
 		
 	if player:
 		# The direction to the player body

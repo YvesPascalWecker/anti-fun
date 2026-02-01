@@ -11,6 +11,7 @@ var decalProgress:float
 @export_range(0.00001,1.0,0.00001) var mouse_sensitivity:float = 0.0
 var decal:Area3D
 var isFlippingDecal:bool
+var initialPosition:Vector3
 const JUMP_VELOCITY:float = 4.5
 
 signal OnFlippingProgress
@@ -24,6 +25,7 @@ func _ready() -> void:
 	progressBarComponent = progressBarInstance.get_child(0)
 	progressBarComponent.value = 0.0
 	%Head.add_child(progressBarInstance)
+	initialPosition = global_position
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -50,6 +52,9 @@ func _input(event):
 		progressBarComponent.value = 0.0
 	
 func _process(delta: float) -> void:
+	if global_position.y < -100.0:
+		global_position = initialPosition
+	
 	var collidetWith = %ArmEyeCast.get_collider()
 	if collidetWith && collidetWith is PropagandaDecal:
 		decal = collidetWith
