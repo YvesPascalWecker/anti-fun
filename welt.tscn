@@ -5,7 +5,6 @@
 [ext_resource type="MeshLibrary" uid="uid://4ln70tn6wif5" path="res://city_meshlib.meshlib" id="3_3bccv"]
 [ext_resource type="PackedScene" uid="uid://c5ap7hwv4kwbt" path="res://enemy.tscn" id="3_4agmm"]
 [ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="4_4agmm"]
-[ext_resource type="Script" uid="uid://duhn33ututy6p" path="res://subEnemy.gd" id="4_8bs7t"]
 [ext_resource type="Texture2D" uid="uid://doax3emtmv2rw" path="res://negative/out_now.png" id="5_gfeq7"]
 [ext_resource type="Texture2D" uid="uid://cqnj37tr2nwbx" path="res://positive/Untitled_Artwork 20 Medium.png" id="6_gfeq7"]
 
@@ -60,10 +59,6 @@ volumetric_fog_ambient_inject = 1.53
 
 [node name="Welt" type="Node3D" unique_id=30415215]
 
-[node name="SubCode" type="Node" parent="." unique_id=316677937 node_paths=PackedStringArray("parrent")]
-script = ExtResource("4_8bs7t")
-parrent = NodePath("../Enemy")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=162593415]
 environment = SubResource("Environment_4agmm")
 
@@ -79,6 +74,7 @@ directional_shadow_fade_start = 0.093
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.56096, 6.42276, 46.944122)
 collision_layer = 3
 collision_mask = 15
+speed = null
 mouse_sensitivity = 0.001
 
 [node name="Camera3D" parent="Player/Head" parent_id_path=PackedInt32Array(327792399, 97254667) index="0" unique_id=830207570]

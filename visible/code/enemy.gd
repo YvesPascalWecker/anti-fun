@@ -13,6 +13,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 enum enemyState {Idle, Suspicious, Hunting}
+var enemyStateCurrentValue:int = 0
 var state:enemyState
 var statePrevious:enemyState
 
@@ -58,13 +59,15 @@ func _on_player_flipping():
 	setState(enemyState.Hunting)
 
 func _process(delta: float) -> void:
-	
 	match state:
 		enemyState.Idle:
+			enemyStateCurrentValue = enemyState.Idle
 			checkEnvironment()
 		enemyState.Suspicious:
+			enemyStateCurrentValue = enemyState.Suspicious
 			pass
 		enemyState.Hunting:
+			enemyStateCurrentValue = enemyState.Hunting
 			pass
 
 func checkEnvironment() -> void:
@@ -92,7 +95,6 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		player = body		
 
-
 func _on_detect_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		player = null
@@ -100,5 +102,10 @@ func _on_detect_area_body_exited(body: Node3D) -> void:
 		if playerIsVisible:
 			playerIsVisible = false;
 			body.OnFlippingProgress.disconnect(_on_player_flipping)
-	
-		
+
+
+func _on_enemy_sub_code_velocity_persceadet(new_velocity: Vector3) -> void:
+	if enemyStateCurrentValue == enemyState.Hunting:
+		velocity += new_velocity
+		move_and_slide()
+	else: pass

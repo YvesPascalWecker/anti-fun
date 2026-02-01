@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dtual2gubi1nq" path="res://visible/code/enemy.gd" id="1_7k104"]
 [ext_resource type="PackedScene" uid="uid://w5m8dfw88emb" path="res://person.tscn" id="2_4gyqm"]
-[ext_resource type="Script" uid="uid://dcw4cbe22p6hs" path="res://person.gd" id="3_iifgy"]
+[ext_resource type="Script" path="res://person.gd" id="3_iifgy"]
 [ext_resource type="AudioStream" uid="uid://d36t3b06nurr4" path="res://audio/V4.2.wav" id="3_qi2p4"]
+[ext_resource type="Script" uid="uid://duhn33ututy6p" path="res://subEnemy.gd" id="5_epg4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fb3t6"]
 
@@ -32,5 +33,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.459575, 0)
 stream = ExtResource("3_qi2p4")
 max_distance = 20.0
 
+[node name="EnemySubCode" type="Node" parent="." unique_id=1194177615 node_paths=PackedStringArray("parrent")]
+script = ExtResource("5_epg4t")
+parrent = NodePath("..")
+
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
+[connection signal="velocity_persceadet" from="EnemySubCode" to="." method="_on_enemy_sub_code_velocity_persceadet"]
