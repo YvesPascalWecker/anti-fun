@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 	var collidetWith = %ArmEyeCast.get_collider()
 	if collidetWith && collidetWith is PropagandaDecal:
 		decal = collidetWith
+		decal.setHighlight(true)
 		if isFlippingDecal && decal:
 			# Add flipping progress
 			decalProgress -= delta
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 			OnFlippingProgress.emit()
 			if decalProgress <= 0.0:
 				decal.flip()
+				decal.setHighlight(false)
 				isFlippingDecal = false
 				OnFlippingDone.emit()
 			
@@ -63,6 +65,10 @@ func _process(delta: float) -> void:
 			progressBarComponent.value = 0.0
 	else:
 		# Cancel flipping action
+		if decal:
+			decal.setHighlight(false)
+			decal = null
+		
 		isFlippingDecal = false
 		progressBarComponent.value = 0.0
 		

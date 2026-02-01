@@ -1,6 +1,11 @@
 class_name enemy
 extends CharacterBody3D
 
+
+@export var audioStartHunting:Array[AudioStreamWAV]
+@export var audioHunting:Array[AudioStreamWAV]
+@export var audioPlayerVeryClose:Array[AudioStreamWAV]
+@export var audioWalking:Array[AudioStreamWAV]
 @export var FOV = 70.0
 var playerIsVisible:bool = false
 var player:Player
@@ -8,6 +13,8 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 enum enemyState {Idle, Suspicious, Hunting}
+var state:enemyState
+var statePrevious:enemyState
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -27,23 +34,40 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func setState(state:enemyState):
-	match state:
-		enemyState.Idle:
-			print("Idling")
-		enemyState.Suspicious:
-			print("Sus")
-		enemyState.Hunting:
-			print("Hunting")
-			
+func setState(newState:enemyState):
+	if newState != state:
+		state = newState
+		match state:
+			enemyState.Idle:
+				print("Idling")
+				$body.setState($body.BodyState.Idle)
+				
+			enemyState.Suspicious:
+				print("Sus")
+				$body.setState($body.BodyState.Suspicious)
+				
+			enemyState.Hunting:
+				$body.setState($body.BodyState.Hunting)
+				$AudioStreamPlayer3D.stream = audioStartHunting.pick_random()
+				$AudioStreamPlayer3D.play()
+				print("Hunting")
+				
+		statePrevious = state
 
 func _on_player_flipping():
 	setState(enemyState.Hunting)
-	
-	
-
 
 func _process(delta: float) -> void:
+	
+	match state:
+		enemyState.Idle:
+			checkEnvironment()
+		enemyState.Suspicious:
+			pass
+		enemyState.Hunting:
+			pass
+
+func checkEnvironment() -> void:
 	if player:
 		# The direction to the player body
 		var direction = global_position.direction_to(player.global_position)
@@ -63,7 +87,6 @@ func _process(delta: float) -> void:
 			if playerIsVisible:
 				playerIsVisible = false;
 				player.OnFlippingProgress.disconnect(_on_player_flipping)
-	
 
 func _on_detect_area_body_entered(body: Node3D) -> void:
 	if body is Player:
