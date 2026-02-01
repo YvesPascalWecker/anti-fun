@@ -4,6 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://4ln70tn6wif5" path="res://city_meshlib.meshlib" id="3_3bccv"]
 [ext_resource type="PackedScene" uid="uid://c5ap7hwv4kwbt" path="res://enemy.tscn" id="3_4agmm"]
 [ext_resource type="PackedScene" uid="uid://dj05jlpv5468v" path="res://decal_flip.tscn" id="4_4agmm"]
+[ext_resource type="Script" uid="uid://duhn33ututy6p" path="res://subEnemy.gd" id="4_8bs7t"]
 [ext_resource type="Texture2D" uid="uid://doax3emtmv2rw" path="res://negative/out_now.png" id="5_gfeq7"]
 [ext_resource type="Texture2D" uid="uid://cqnj37tr2nwbx" path="res://positive/Untitled_Artwork 20 Medium.png" id="6_gfeq7"]
 
@@ -58,6 +59,10 @@ volumetric_fog_ambient_inject = 1.53
 
 [node name="Welt" type="Node3D" unique_id=30415215]
 
+[node name="SubCode" type="Node" parent="." unique_id=316677937 node_paths=PackedStringArray("parrent")]
+script = ExtResource("4_8bs7t")
+parrent = NodePath("../Enemy")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=162593415]
 environment = SubResource("Environment_4agmm")
 
@@ -105,4 +110,7 @@ playerDecalScale = Vector3(0.5, 0.5, 0.5)
 [node name="Enemy2" parent="." unique_id=506533670 instance=ExtResource("3_4agmm")]
 transform = Transform3D(-0.28695926, 0, -0.9579428, 0, 1, 0, 0.9579428, 0, -0.28695926, -0.24254656, 2.3084993, 17.686825)
 
+[node name="NavigationServer" type="Node" parent="." unique_id=1173375331]
+
 [editable path="Player"]
+[editable path="Enemy"]
