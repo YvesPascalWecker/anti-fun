@@ -4,27 +4,36 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdqqi"]
 
-[node name="DecalFlip" type="Node3D" unique_id=1757766559]
+[sub_resource type="Gradient" id="Gradient_mm2x8"]
 
-[node name="Enemy_Sticker" type="Decal" parent="." unique_id=766342472]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qdqqi"]
+gradient = SubResource("Gradient_mm2x8")
 
-[node name="DecalArea3D" type="Area3D" parent="Enemy_Sticker" unique_id=224898251]
+[node name="DecalArea3D" type="Area3D" unique_id=224898251]
 monitoring = false
 script = ExtResource("1_mm2x8")
+playerDecalOffset = null
+playerDecalRotation = null
+playerDecalScale = null
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Sticker/DecalArea3D" unique_id=466498763]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=466498763]
 shape = SubResource("BoxShape3D_qdqqi")
 
-[node name="Player_Sticker" type="Decal" parent="." unique_id=720795508]
+[node name="DecalFlip" type="Node3D" parent="." unique_id=1757766559]
+
+[node name="Enemy_Sticker" type="Decal" parent="DecalFlip" unique_id=766342472]
 unique_name_in_owner = true
-visible = false
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+size = Vector3(1, 1, 1)
+upper_fade = 0.0
+lower_fade = 0.0
 
-[node name="DecalArea3D" type="Area3D" parent="Player_Sticker" unique_id=956142251]
+[node name="Player_Sticker" type="Decal" parent="DecalFlip" unique_id=706247865]
+unique_name_in_owner = true
+transform = Transform3D(-0.5, -7.54979e-08, 3.300118e-15, 0, -2.1855694e-08, -0.5, 7.54979e-08, -0.5, 2.1855694e-08, 0, 0, 0)
+rotation_order = 5
 visible = false
-script = ExtResource("1_mm2x8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Sticker/DecalArea3D" unique_id=997805335]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-visible = false
-shape = SubResource("BoxShape3D_qdqqi")
+size = Vector3(1, 1, 1)
+texture_orm = SubResource("GradientTexture2D_qdqqi")
+upper_fade = 0.0
+lower_fade = 0.0

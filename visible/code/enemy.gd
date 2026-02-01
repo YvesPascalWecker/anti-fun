@@ -7,6 +7,8 @@ var player:Player
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+enum enemyState {Idle, Suspicious, Hunting}
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -24,9 +26,21 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func setState(state:enemyState):
+	match state:
+		enemyState.Idle:
+			print("Idling")
+		enemyState.Suspicious:
+			print("Sus")
+		enemyState.Hunting:
+			print("Hunting")
+			
 
 func _on_player_flipping():
-	print("player is flipping in my view!!!!!!!")
+	setState(enemyState.Hunting)
+	
+	
 
 
 func _process(delta: float) -> void:
@@ -42,7 +56,6 @@ func _process(delta: float) -> void:
 		
 		if facing > fov:
 			if !playerIsVisible:
-				print("Player, I see you!")
 				player.OnFlippingProgress.connect(_on_player_flipping)
 				playerIsVisible = true;
 			
