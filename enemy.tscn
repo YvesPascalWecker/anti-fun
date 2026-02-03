@@ -41,6 +41,12 @@ max_distance = 20.0
 script = ExtResource("5_epg4t")
 parrent = NodePath("..")
 
+[node name="StuckTimer" type="Timer" parent="." unique_id=30668738]
+unique_name_in_owner = true
+wait_time = 10.0
+ignore_time_scale = true
+
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
 [connection signal="velocity_persceadet" from="EnemySubCode" to="." method="_on_enemy_sub_code_velocity_persceadet"]
+[connection signal="timeout" from="StuckTimer" to="." method="_on_stuck_timer_timeout"]

@@ -35,7 +35,6 @@ func _input(event):
 
 	if Input.is_action_just_pressed("interact"):
 		#var collidetWith = %ArmEyeCast.get_collider()
-		#print(collidetWith.name)
 		if decal:
 			if !isFlippingDecal:
 				$AudioStreamPlayer3D.stream = audioStartFlipping.pick_random()

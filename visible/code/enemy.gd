@@ -1,27 +1,28 @@
 class_name enemy
 extends CharacterBody3D
 
+@export var max_stuck_duration :float = 10.0  
 
 @export var audioStartHunting:Array[AudioStreamWAV]
 @export var audioHunting:Array[AudioStreamWAV]
 @export var audioPlayerVeryClose:Array[AudioStreamWAV]
 @export var audioWalking:Array[AudioStreamWAV]
-@export var FOV = 70.0
-@export var rotateAround = 0.0
-@export var rotateAroundDelay = 10.0
-@export var patrolForwardTime = 0.0
-var patrolForwardTimeCurrent
-var rotateAroundDelayCurrent
+@export var FOV : float = 70.0
+@export var rotateAround :float = 0.0
+@export var rotateAroundDelay :float = 10.0
+@export var patrolForwardTime :float = 0.0
+var patrolForwardTimeCurrent :float
+var rotateAroundDelayCurrent :float
 var initialPosition:Vector3
 var initialRotation:Vector3
-@export var walkDistance = 10.0
+@export var walkDistance :float = 10.0
 var playerIsVisible:bool = false
 var player:Player
-@export_range(0.1, 2.0, 0.001) var speed = 2.0
-@export var decelration = 0.05
-@export var speedMin = 0.2
+@export_range(0.1, 2.0, 0.001) var speed :float = 2.0
+@export var decelration :float = 0.05
+@export var speedMin:float = 0.2
 var speedCurrent:float
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY:float = 4.5
 
 enum enemyState {Idle, Suspicious, Hunting, Returning}
 var enemyStateCurrentValue:int = 0
@@ -58,11 +59,9 @@ func setState(newState:enemyState):
 		state = newState
 		match state:
 			enemyState.Idle:
-				print("Idling")
 				$body.setState($body.BodyState.Idle)
 				
 			enemyState.Suspicious:
-				print("Sus")
 				$body.setState($body.BodyState.Suspicious)
 				
 			enemyState.Hunting:
@@ -70,7 +69,6 @@ func setState(newState:enemyState):
 				$AudioStreamPlayer3D.stream = audioStartHunting.pick_random()
 				$AudioStreamPlayer3D.play()
 				speedCurrent = speed
-				print("Hunting")
 				
 			enemyState.Returning:
 				pass
@@ -81,6 +79,7 @@ func _on_player_flipping():
 	setState(enemyState.Hunting)
 
 func _process(delta: float) -> void:
+	_check_stuck()
 	match state:
 		enemyState.Idle:
 			enemyStateCurrentValue = enemyState.Idle
@@ -101,21 +100,21 @@ func _process(delta: float) -> void:
 				
 			if (Global.player.global_position - global_position).length() < 1.5:
 				Global.playerDied()
-			pass
-			
+
+
 		enemyState.Returning:
 			speedCurrent = min(speedCurrent + decelration * delta, speed)
 			_velocity = global_position.direction_to(initialPosition) * speed
 			var rotationTarget = initialPosition
 			rotationTarget.y = global_position.y
-			look_at(rotationTarget)
+			self.look_at(rotationTarget)
 			#rotation = move_toward(rotation, angle_to_player, delta)
 			
 			if (global_position - initialPosition).length() < 1.0:
 				setState(enemyState.Idle)
 				_velocity = Vector3.ZERO
 				rotation = initialRotation
-			pass
+
 			
 
 func checkEnvironment(delta:float) -> void:
@@ -159,13 +158,27 @@ func _on_detect_area_body_entered(body: Node3D) -> void:
 func _on_detect_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		player = null
-		print("Player has left")
 		if playerIsVisible:
 			playerIsVisible = false;
 			body.OnFlippingProgress.disconnect(_on_player_flipping)
-
 
 func _on_enemy_sub_code_velocity_persceadet(new_velocity: Vector3) -> void:
 	if enemyStateCurrentValue == enemyState.Hunting:
 		_velocity = new_velocity
 	else: pass
+
+func _check_stuck() -> bool:
+	if is_on_wall() && %StuckTimer.is_stopped():
+		%StuckTimer.start()
+		return true
+	else: 
+		return false
+
+
+func _on_stuck_timer_timeout() -> void:
+	global_position = initialPosition
+	rotation = initialRotation
+	speedCurrent = 0.0
+	max_stuck_duration = 10.0
+	setState(enemyState.Idle)
+	pass # Replace with function body.

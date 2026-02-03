@@ -1,5 +1,4 @@
 # Godot 4+ specific ignores
-.godot/
+.godot/*
 /android/
-.invisible 
-.godot/editor/editor_layout.cfg
+.invisible/*

@@ -3,6 +3,7 @@
 class_name PropagandaDecal
 extends Area3D
 
+
 @export var decalSwapTime = 1.0
 @export var decalTextureEnemy:Texture2D
 @export var decalTexturePlayer:Texture2D
@@ -48,11 +49,9 @@ func setHighlight(doHighlight:bool):
 func updateDecal():
 	%Player_Sticker.visible = !isNegative
 	if decalTextureEnemy.get_rid():
-		print(%Enemy_Sticker)
 		%Enemy_Sticker.texture_albedo = decalTextureEnemy
 		%Player_Sticker.texture_albedo = decalTexturePlayer
-		print(decalTextureEnemy.get_height())
-		print(decalTextureEnemy.get_width())
+
 		var texSize = decalTextureEnemy.get_size()
 		%Enemy_Sticker.size = Vector3(1.0, 1.0, texSize.y/texSize.x)
 		%Player_Sticker.rotation.z = playerDecalRotation
