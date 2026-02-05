@@ -5,6 +5,7 @@ extends Node
 var __remainingDecalCount:int
 var __decalCountTotal:int
 var player:Player
+var playerLiveState:bool = true
 
 signal OnRemainingDecalCountChanged(countNew:int, countTotal:int)
 signal OnGameLost(count:int, countTotal:int)
@@ -15,25 +16,17 @@ func setRemainingDecalCount(count:int):
 	OnRemainingDecalCountChanged.emit(__remainingDecalCount, __decalCountTotal)
 	if __remainingDecalCount <= 0:
 		OnGameWon.emit()
-		print("Game won!")
 		
 	
 func getRemainingDecalCount():
 	return __remainingDecalCount
 	
-func playerDied():
+func playerDied() -> void:
 	OnGameLost.emit()
-	print("Player was killed!")
 	
-func registerDecal():
+func registerDecal() -> void:
 	__decalCountTotal += 1
 	setRemainingDecalCount(__remainingDecalCount + 1)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func is_player_alive():
+	return playerLiveState

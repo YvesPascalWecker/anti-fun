@@ -9,9 +9,10 @@ func _ready() -> void:
 
 func onGameLost():
 	text = "You lost!"
-	
+	Global.playerLiveState = false
 func onGameWon():
 	text = "You win!"
+	Global.playerLiveState = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

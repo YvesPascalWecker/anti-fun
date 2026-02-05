@@ -28,27 +28,29 @@ func _ready() -> void:
 	initialPosition = global_position
 
 func _input(event):
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		%Head.rotate_x(-event.relative.y * mouse_sensitivity)
-		%Head.rotation.x = clampf(%Head.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Global.is_player_alive():
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE and Input.is_action_just_pressed("interact"):
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			rotate_y(-event.relative.x * mouse_sensitivity)
+			%Head.rotate_x(-event.relative.y * mouse_sensitivity)
+			%Head.rotation.x = clampf(%Head.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 
-	if Input.is_action_just_pressed("interact"):
-		#var collidetWith = %ArmEyeCast.get_collider()
-		if decal:
-			if !isFlippingDecal:
-				$AudioStreamPlayer3D.stream = audioStartFlipping.pick_random()
-				$AudioStreamPlayer3D.play()
+		if Input.is_action_just_pressed("interact"):
+			#var collidetWith = %ArmEyeCast.get_collider()
+			if decal:
+				if !isFlippingDecal:
+					$AudioStreamPlayer3D.stream = audioStartFlipping.pick_random()
+					$AudioStreamPlayer3D.play()
 			
-			isFlippingDecal = true
-			decalProgress = decal.decalSwapTime
-		#if collidetWith.name == "DecalArea3D":
-		#	if collidetWith.has_method("flip"):
-		#		collidetWith.flip()
-		#		collidetWith.decalSwapTime
-	elif Input.is_action_just_released("interact"):
-		isFlippingDecal = false
-		progressBarComponent.value = 0.0
+				isFlippingDecal = true
+				decalProgress = decal.decalSwapTime
+
+		elif Input.is_action_just_released("interact"):
+			isFlippingDecal = false
+			progressBarComponent.value = 0.0
 	
 func _process(delta: float) -> void:
 	if global_position.y < -100.0:
