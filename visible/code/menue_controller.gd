@@ -8,6 +8,8 @@ extends Control
 
 
 func _ready() -> void:
+	if option_scean == null:
+		$"AspectRatioContainer/V-SortStartMenue/OptionsButton".visible = false
 	%SplashScreen.visible = true
 	%"V-SortStartMenue".visible = false
 

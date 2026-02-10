@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cc7msj0wslmwe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjh3e"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hjh3e"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="TestWall" type="Node3D" unique_id=1334587467]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=994736209]
+transform = Transform3D(1.9488493, 0, 0, 0, 2.4878745, 0, 0, 0, 0.5231287, 0, 0, 0)
+mesh = SubResource("BoxMesh_hjh3e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1065637050]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1520959157]
+shape = SubResource("ConcavePolygonShape3D_hjh3e")

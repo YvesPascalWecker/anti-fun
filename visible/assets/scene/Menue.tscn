@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cu47qmamhnlni"]
+
+[ext_resource type="Script" uid="uid://rrqfjfoax26a" path="res://visible/code/menue_controller.gd" id="1_in16k"]
+[ext_resource type="PackedScene" uid="uid://sb87gk6wv43n" path="res://visible/assets/scene/welt.tscn" id="2_hxe85"]
+
+[sub_resource type="World3D" id="World3D_o6a70"]
+
+[node name="Menue" type="Control" unique_id=727166634]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_in16k")
+start_scean = ExtResource("2_hxe85")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=612870079]
+own_world_3d = true
+world_3d = SubResource("World3D_o6a70")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=292076574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundTexture" type="TextureRect" parent="AspectRatioContainer" unique_id=1923687899]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="AspectRatioContainer" unique_id=1243201524]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SplashScreen" type="Control" parent="AspectRatioContainer" unique_id=1052309368]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="pleasKlick" type="Label" parent="AspectRatioContainer/SplashScreen" unique_id=501354788]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press any Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="V-SortStartMenue" type="VBoxContainer" parent="AspectRatioContainer" unique_id=1042654338]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="AspectRatioContainer/V-SortStartMenue" unique_id=1532062019]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="AspectRatioContainer/V-SortStartMenue" unique_id=406251149]
+layout_mode = 2
+text = "Options"
+
+[node name="EndButton" type="Button" parent="AspectRatioContainer/V-SortStartMenue" unique_id=518804051]
+layout_mode = 2
+text = "End"
+
+[connection signal="pressed" from="AspectRatioContainer/V-SortStartMenue/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/V-SortStartMenue/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/V-SortStartMenue/EndButton" to="." method="_on_end_button_pressed"]
